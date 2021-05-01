@@ -1,4 +1,4 @@
-import { validateEmail, validatePassword } from '../../ThrilleeForm/validators';
+import { validateEmail, validatePassword } from 'formlee';
 import { validateConfirmPassword } from './validator';
 
 export const formData = {

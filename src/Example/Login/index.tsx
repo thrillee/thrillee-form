@@ -4,7 +4,8 @@ import { Card, Form, Button, Container, CardTitle, CardBody } from 'reactstrap';
 import { formData } from './FormData';
 import { inputTemplates } from '../../inputGenerators/index';
 
-import ThrilleeForm from '../../ThrilleeForm';
+import { Formlee } from 'formlee';
+import Result from '../Result';
 
 const Login = () => {
 	const defaultValues = {
@@ -12,7 +13,8 @@ const Login = () => {
 		password: '123admin123',
 	};
 
-	const [isSubmitted, setSubmit] = useState<Boolean>(false);
+	const [isSubmitted, setSubmit] = useState<boolean>(false);
+	const [values, setValues] = useState<{}>();
 
 	const handleSubmit = (
 		e:
@@ -25,6 +27,7 @@ const Login = () => {
 
 	const receiveValue = (values: object) => {
 		console.log(values);
+		setValues(values);
 	};
 	return (
 		<Container>
@@ -32,7 +35,7 @@ const Login = () => {
 				<CardBody>
 					<CardTitle>Login Form (ThrilleeForm Test)</CardTitle>
 					<Form onSubmit={handleSubmit}>
-						<ThrilleeForm
+						<Formlee
 							formData={formData}
 							onSubmit={receiveValue}
 							isSubmitted={isSubmitted}
@@ -44,6 +47,8 @@ const Login = () => {
 							Login
 						</Button>
 					</Form>
+
+					{values !== undefined && <Result data={values} />}
 				</CardBody>
 			</Card>
 		</Container>

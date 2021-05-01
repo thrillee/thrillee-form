@@ -1,4 +1,4 @@
-import { required, validatePhone } from '../../ThrilleeForm/validators';
+import { required, validatePhone } from 'formlee';
 
 export const formData = {
 	fields: [

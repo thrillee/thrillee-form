@@ -1,6 +1,6 @@
 import { Col, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-import { InputFieldProps } from '../ThrilleeForm/configs';
+import { InputFieldProps } from '../config/type';
 
 export const emailInputGrid = (props: InputFieldProps) => {
 	return (

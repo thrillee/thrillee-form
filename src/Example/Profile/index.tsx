@@ -4,7 +4,8 @@ import { Card, Form, Button, Container, CardTitle, CardBody } from 'reactstrap';
 import { formData } from './FormData';
 import { inputTemplates } from '../../inputGenerators/index';
 
-import ThrilleeForm from '../../ThrilleeForm';
+import { Formlee } from 'formlee';
+import Result from '../Result';
 
 const Profile = () => {
 	const defaultValues = {
@@ -17,7 +18,8 @@ const Profile = () => {
 		gender: 'Female',
 	};
 
-	const [isSubmitted, setSubmit] = useState<Boolean>(false);
+	const [isSubmitted, setSubmit] = useState<boolean>(false);
+	const [values, setValues] = useState<{}>();
 
 	const handleSubmit = (
 		e:
@@ -30,6 +32,7 @@ const Profile = () => {
 
 	const receiveValue = (values: object) => {
 		console.log(values);
+		setValues(values);
 	};
 
 	return (
@@ -38,7 +41,7 @@ const Profile = () => {
 				<CardBody>
 					<CardTitle>Profile (ThrilleeForm Test)</CardTitle>
 					<Form onSubmit={handleSubmit}>
-						<ThrilleeForm
+						<Formlee
 							formData={formData}
 							onSubmit={receiveValue}
 							isSubmitted={isSubmitted}
@@ -50,6 +53,7 @@ const Profile = () => {
 							Update profile
 						</Button>
 					</Form>
+					{values !== undefined && <Result data={values} />}
 				</CardBody>
 			</Card>
 		</Container>

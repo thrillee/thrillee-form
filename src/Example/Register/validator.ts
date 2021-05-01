@@ -1,5 +1,5 @@
-import { validatePassword } from '../../ThrilleeForm/validators';
-import { Value } from '../../ThrilleeForm/configs';
+import { validatePassword } from 'formlee';
+import { Value } from '../../config/type';
 
 export const validateConfirmPassword = (values: Value) => {
 	let password1 = values['password1'];
